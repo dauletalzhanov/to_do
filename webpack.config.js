@@ -7,7 +7,7 @@ const json5 = require("json5")
 
 module.exports = {
 	mode: "development",
-	
+
 	entry: "./src/index.js",
 	output: {
 		filename: '[name].bundle.js',
@@ -19,7 +19,8 @@ module.exports = {
 		runtimeChunk: 'single',
 	},
 	plugins: [new HtmlWebpackPlugin({
-		title: "To-Do List!"
+		title: "To-Do List!",
+		template: "./src/index.html",
 	})],
 
 	devServer: {
