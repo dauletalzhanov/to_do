@@ -115,7 +115,27 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n\n\n//# sourceURL=webpack://to_do/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _project__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./project */ \"./src/project.js\");\n/* harmony import */ var _task__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./task */ \"./src/task.js\");\n\r\n\r\n\r\n\r\n\r\nlet newProjectButton = document.querySelector(\"#new_project\")\r\nlet projectList = document.querySelector(\"#project_list\")\r\n\r\nnewProjectButton.addEventListener(\"click\", function(){\r\n\tif(document.querySelectorAll(\"new-input\").length > 0){\r\n\t\treturn // insert one at a time\r\n\t}\r\n\t\r\n\tlet newProject = document.createElement(\"p\")\r\n\r\n\tlet newInput = document.createElement(\"input\")\r\n\tnewInput.classList.add(\"new-input\")\r\n\r\n\tconst def = document.querySelector(\"#default\")\r\n\r\n\tnewInput.setAttribute(\"type\", \"text\")\r\n\tnewInput.setAttribute(\"placeholder\", \"please enter a name\")\r\n\t\r\n\tlet project = new _project__WEBPACK_IMPORTED_MODULE_1__[\"default\"](\"filler\")\r\n\r\n\tnewProject.appendChild(newInput)\r\n\t\r\n\tprojectList.insertBefore(newProject, def.nextSibling)\r\n\r\n\tnewInput.style.backgroundColor = \"#eeeeee\"\r\n\tnewInput.focus()\r\n\t\r\n\tnewInput.addEventListener(\"focusout\", function(){\r\n\t\tif(newInput.value.length == 0){\r\n\t\t\tprojectList.removeChild(newProject)\r\n\t\t\treturn\r\n\t\t}\r\n\t\tnewProject.innerHTML = newInput.value\r\n\t})\r\n\r\n\tnewProject.addEventListener(\"dblclick\", function(){\r\n\t\tif(document.querySelectorAll(\".edit-input\").length > 0){\r\n\t\t\treturn //edge case for an existing edit input\r\n\t\t}\r\n\r\n\t\tlet anotherInput = document.createElement(\"input\")\r\n\t\tanotherInput.value = newProject.innerText\r\n\t\tanotherInput.classList.add(\"edit-input\")\r\n\t\tanotherInput.style.backgroundColor = \"#eeeeee\"\r\n\r\n\t\tnewProject.innerHTML = \"\"\r\n\t\tnewProject.appendChild(anotherInput)\r\n\r\n\t\tanotherInput.addEventListener(\"focusout\", function(){\r\n\t\t\tnewProject.innerHTML = anotherInput.value\r\n\r\n\t\t})\r\n\t})\r\n\r\n})\n\n//# sourceURL=webpack://to_do/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/project.js":
+/*!************************!*\
+  !*** ./src/project.js ***!
+  \************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nclass Project {\r\n\tconstructor(title){\r\n\t\tthis.title = title\r\n\t\tthis.numItems = 0\r\n\t}\r\n}\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Project);\n\n//# sourceURL=webpack://to_do/./src/project.js?");
+
+/***/ }),
+
+/***/ "./src/task.js":
+/*!*********************!*\
+  !*** ./src/task.js ***!
+  \*********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nclass Task {\r\n\tconstructor(title, description, dueDate){\r\n\t\tthis.title = title\r\n\t\tthis.description = description\r\n\t\tthis.dueDate = dueDate\r\n\t\tthis.priority = (255,255,255)\r\n\r\n\t\tthis.completed = false\r\n\t}\r\n\r\n\tsetPriority(priority){\r\n\t\tthis.priority = priority\r\n\t}\r\n\r\n\tsetDate(dueDate){\r\n\t\tthis.dueDate = dueDate\r\n\t}\r\n\r\n\t\r\n}\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Task);\n\n//# sourceURL=webpack://to_do/./src/task.js?");
 
 /***/ })
 
