@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack serve --open",
     "dev": "webpack serve",
-    "build": "webpack"
+    "build": "webpack",
+    "publish": "git subtree push --prefix dist origin gh-pages"
   },
   "keywords": [],
   "author": "",
